@@ -7,9 +7,9 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HeaderComponent implements OnInit {
   headerComponents: [string, string, string] = [
-    "Characters",
-    "Locations",
-    "Episodes",
+    "characters",
+    "locations",
+    "episodes",
   ];
 
   constructor() {}

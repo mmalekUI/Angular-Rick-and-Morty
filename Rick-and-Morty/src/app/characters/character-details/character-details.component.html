@@ -8,9 +8,9 @@
 
     <button mat-raised-button>{{ character.species }}</button>
     <button mat-raised-button>{{ character.gender }}</button>
-    <button mat-raised-button>{{ character.origin }}</button>
+    <button mat-raised-button>{{ character.origin.name }}</button>
     <button mat-raised-button>
-      Last seen location: {{ character.location }}
+      Last seen location: {{ character.location.name }}
     </button>
   </div>
 </mat-card>

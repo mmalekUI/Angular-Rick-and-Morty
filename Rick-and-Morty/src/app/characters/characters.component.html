@@ -1,13 +1,16 @@
 <mat-grid-list cols="3" rowHeight="5:5">
   <ul *ngFor="let character of characters$ | async">
     <mat-grid-tile>
-      <mat-card (click)="onCardClick()">
+      <mat-card (click)="onCardClick(character)">
         <mat-card-header>
           <mat-card-title>{{ character.name }}</mat-card-title></mat-card-header
         >
         <img mat-card-image src="{{ character.image }}" alt="" />
         <div class="card-footer">
-          <button mat-raised-button color="primary">
+          <button
+            mat-raised-button
+            [color]="getCharacterStatusColor(character.status)"
+          >
             Status: {{ character.status }}
           </button>
 

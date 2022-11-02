@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title></mat-card-header
+  >
+  <img mat-card-image src="{{ character.image }}" alt="" />
+  <div class="card-footer">
+    <button mat-raised-button>Status: {{ character.status }}</button>
+
+    <button mat-raised-button>{{ character.species }}</button>
+    <button mat-raised-button>{{ character.gender }}</button>
+    <button mat-raised-button>{{ character.origin }}</button>
+    <button mat-raised-button>
+      Last seen location: {{ character.location }}
+    </button>
+  </div>
+</mat-card>

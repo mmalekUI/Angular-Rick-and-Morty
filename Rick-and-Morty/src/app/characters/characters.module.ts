@@ -4,9 +4,10 @@ import { CharactersComponent } from "./characters.component";
 import { CharactersRoutingModule } from "./characters-routing.module";
 import { CharactersDataService } from "../charactersData.service";
 import { MaterialModule } from "../material/material.module";
+import { CharacterDetailsComponent } from "./character-details/character-details.component";
 
 @NgModule({
-  declarations: [CharactersComponent],
+  declarations: [CharactersComponent, CharacterDetailsComponent],
   imports: [CommonModule, CharactersRoutingModule, MaterialModule],
   providers: [CharactersDataService],
 })

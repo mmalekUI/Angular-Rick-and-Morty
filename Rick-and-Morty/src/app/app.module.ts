@@ -7,10 +7,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HeaderComponent } from "./header/header.component";
 import { HttpClientModule } from "@angular/common/http";
 import { MaterialModule } from "./material/material.module";
-import { CharacterDetailsComponent } from './character-details/character-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, CharacterDetailsComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

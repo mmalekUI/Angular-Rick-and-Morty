@@ -16,5 +16,9 @@ export class CharactersComponent implements OnInit {
       .pipe(map((data) => data.results));
   }
 
+  onCardClick() {
+    console.log("click works");
+  }
+
   ngOnInit(): void {}
 }

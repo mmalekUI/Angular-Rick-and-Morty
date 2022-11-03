@@ -1,0 +1,11 @@
+.dialog-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -5,9 +5,14 @@ import { CharactersRoutingModule } from "./characters-routing.module";
 import { CharactersDataService } from "../charactersData.service";
 import { MaterialModule } from "../material/material.module";
 import { CharacterDetailsComponent } from "./character-details/character-details.component";
+import { CharactersFiltersComponent } from "./characters-filters/characters-filters.component";
 
 @NgModule({
-  declarations: [CharactersComponent, CharacterDetailsComponent],
+  declarations: [
+    CharactersComponent,
+    CharacterDetailsComponent,
+    CharactersFiltersComponent,
+  ],
   imports: [CommonModule, CharactersRoutingModule, MaterialModule],
   providers: [CharactersDataService],
 })

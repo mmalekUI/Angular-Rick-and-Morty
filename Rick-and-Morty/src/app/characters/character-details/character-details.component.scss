@@ -1,11 +1,20 @@
 .dialog-footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
 }
 
 mat-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+button {
+  cursor: auto;
+}
+
+img {
+  size: 50%;
 }

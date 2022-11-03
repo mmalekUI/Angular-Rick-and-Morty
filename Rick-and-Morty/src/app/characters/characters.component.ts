@@ -37,7 +37,9 @@ export class CharactersComponent implements OnInit {
   }
 
   onCardClick(character: any) {
-    this.matDialog.open(CharacterDetailsComponent, { data: character });
+    this.matDialog.open(CharacterDetailsComponent, {
+      data: character,
+    });
     console.log("click works");
     console.log(this.characters$);
   }

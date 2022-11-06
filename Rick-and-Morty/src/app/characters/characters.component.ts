@@ -3,7 +3,6 @@ import { MatDialog } from "@angular/material/dialog";
 import { map, Observable } from "rxjs";
 import { CharacterDetailsComponent } from "./character-details/character-details.component";
 import { CharactersDataService } from "../charactersData.service";
-import { PageEvent } from "@angular/material/paginator";
 
 @Component({
   selector: "app-characters",
@@ -14,18 +13,18 @@ import { PageEvent } from "@angular/material/paginator";
 //dodac interfejs
 export class CharactersComponent implements OnInit {
   public characters$: Observable<any>;
-  public pages$: Observable<any>;
+  public info$: Observable<any>;
 
   constructor(
     private charactersDataService: CharactersDataService,
     private matDialog: MatDialog
   ) {
     this.characters$ = this.charactersDataService
-      .getAllCaracters()
+      .getCaracters({ page: "?page=2" })
       .pipe(map((data) => data.results));
-    this.pages$ = this.charactersDataService
-      .getAllCaracters()
-      .pipe(map((data) => data.info.pages));
+    this.info$ = this.charactersDataService
+      .getCaracters()
+      .pipe(map((data) => data.info));
   }
 
   getCharacterStatusColor(characterStatus: string) {
@@ -49,11 +48,7 @@ export class CharactersComponent implements OnInit {
     console.log(this.characters$);
   }
 
-  onPageChange(event: PageEvent) {
-    const startIndex = event.pageIndex* event.pageSize
-    let endIndex = startIndex + event.pageSize
-    if (endIndex>this.pages$.length)
-  }
+  updatePage(pageIndex: number) {}
 
   detailsData() {}
 

@@ -6,7 +6,7 @@ import { Observable, throwError } from "rxjs";
 export class CharactersDataService {
   constructor(private http: HttpClient) {}
 
-  getAllCaracters(): Observable<any> {
-    return this.http.get("https://rickandmortyapi.com/api/character");
+  getCaracters(params?: object): Observable<any> {
+    return this.http.get("https://rickandmortyapi.com/api/character", params);
   }
 }

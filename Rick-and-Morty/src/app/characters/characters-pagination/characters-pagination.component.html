@@ -1,8 +1,8 @@
-<p>characters-pagination works!</p>
 <mat-paginator
   (page)="handlePageEvent($event)"
   [length]="info.pages"
   [pageIndex]="pageIndex"
+  pageSize="1"
   aria-label="Select page"
 >
 </mat-paginator>

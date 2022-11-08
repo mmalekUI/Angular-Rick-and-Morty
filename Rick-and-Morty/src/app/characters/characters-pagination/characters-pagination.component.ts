@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { PageEvent } from "@angular/material/paginator";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-characters-pagination",
@@ -13,12 +14,13 @@ export class CharactersPaginationComponent implements OnInit {
   length: any;
   pageIndex = 0;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   handlePageEvent(event: PageEvent) {
     this.length = event.length;
     this.pageIndex = event.pageIndex;
     this.pageChanger.emit(this.pageIndex);
+    // this.router.
   }
 
   ngOnInit(): void {

@@ -19,12 +19,20 @@ export class CharactersComponent implements OnInit {
     private charactersDataService: CharactersDataService,
     private matDialog: MatDialog
   ) {
-    this.characters$ = this.charactersDataService
-      .getCaracters({ page: "?page=2" })
-      .pipe(map((data) => data.results));
-    this.info$ = this.charactersDataService
+    this.info$ = this.getInfoObs();
+    this.characters$ = this.getCharactersObs();
+  }
+
+  getInfoObs() {
+    return this.charactersDataService
       .getCaracters()
       .pipe(map((data) => data.info));
+  }
+
+  getCharactersObs(pageIndex?: number) {
+    return this.charactersDataService
+      .getCaracters(pageIndex)
+      .pipe(map((data) => data.results));
   }
 
   getCharacterStatusColor(characterStatus: string) {
@@ -48,7 +56,11 @@ export class CharactersComponent implements OnInit {
     console.log(this.characters$);
   }
 
-  updatePage(pageIndex: number) {}
+  updatePage(pageIndex: number) {
+    this.characters$ = this.getCharactersObs(pageIndex);
+  }
+
+  //Przerobić na router, dane pobierane z url i przekazywane do geta, query paramsm, router query params w angularze (subscriber)
 
   detailsData() {}
 

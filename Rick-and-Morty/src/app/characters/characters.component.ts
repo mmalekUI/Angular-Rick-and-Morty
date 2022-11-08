@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { map, Observable } from "rxjs";
+import { ActivatedRoute } from "@angular/router";
 import { CharacterDetailsComponent } from "./character-details/character-details.component";
 import { CharactersDataService } from "../charactersData.service";
 
@@ -17,7 +18,8 @@ export class CharactersComponent implements OnInit {
 
   constructor(
     private charactersDataService: CharactersDataService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private route: ActivatedRoute
   ) {
     this.info$ = this.getInfoObs();
     this.characters$ = this.getCharactersObs();

@@ -12,16 +12,13 @@ a {
   border-style: solid;
   border-color: black;
   border-radius: 5px;
-  background-color: orange;
+  background-color: blue;
+  color: white;
   text-decoration: none;
 }
 
 a:hover {
-  background-color: blue;
-}
-
-a:visited {
-  background-color: blue;
+  background-color: orange;
   color: white;
 }
 

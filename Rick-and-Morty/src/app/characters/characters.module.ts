@@ -7,6 +7,7 @@ import { MaterialModule } from "../material/material.module";
 import { CharacterDetailsComponent } from "./character-details/character-details.component";
 import { CharactersFiltersComponent } from "./characters-filters/characters-filters.component";
 import { CharactersPaginationComponent } from "./characters-pagination/characters-pagination.component";
+import { CharactersStartComponent } from "./characters-start/characters-start.component";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CharactersPaginationComponent } from "./characters-pagination/character
     CharacterDetailsComponent,
     CharactersFiltersComponent,
     CharactersPaginationComponent,
+    CharactersStartComponent,
   ],
   imports: [CommonModule, CharactersRoutingModule, MaterialModule],
   providers: [CharactersDataService],

@@ -12,7 +12,7 @@ export class CharactersPaginationComponent implements OnInit {
   @Output() pageChanger = new EventEmitter<number>();
 
   length: any;
-  pageIndex = 0;
+  pageIndex = 1;
 
   constructor(private router: Router) {}
 

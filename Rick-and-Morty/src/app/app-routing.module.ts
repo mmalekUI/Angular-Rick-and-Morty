@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: "characters",
+    path: "characters/:page",
     loadChildren: () =>
       import("./characters/characters.module").then((m) => m.CharactersModule),
   },

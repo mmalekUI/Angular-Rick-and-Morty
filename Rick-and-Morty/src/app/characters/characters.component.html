@@ -1,4 +1,5 @@
 <app-characters-start></app-characters-start>
+<p>Character list page {{ page }}</p>
 <mat-grid-list cols="3" rowHeight="5:5">
   <ul *ngFor="let character of characters$ | async">
     <mat-grid-tile>

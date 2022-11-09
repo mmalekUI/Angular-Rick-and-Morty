@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { map, Observable } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { CharacterDetailsComponent } from "./character-details/character-details.component";
 import { CharactersDataService } from "../charactersData.service";
 
@@ -15,11 +15,12 @@ import { CharactersDataService } from "../charactersData.service";
 export class CharactersComponent implements OnInit {
   public characters$: Observable<any>;
   public info$: Observable<any>;
-
+  page!: number;
   constructor(
     private charactersDataService: CharactersDataService,
     private matDialog: MatDialog,
-    private route: ActivatedRoute
+    private route: Router,
+    private aroute: ActivatedRoute
   ) {
     this.info$ = this.getInfoObs();
     this.characters$ = this.getCharactersObs();
@@ -31,9 +32,9 @@ export class CharactersComponent implements OnInit {
       .pipe(map((data) => data.info));
   }
 
-  getCharactersObs(pageIndex?: number) {
+  getCharactersObs(page?: number) {
     return this.charactersDataService
-      .getCaracters(pageIndex)
+      .getCaracters(page)
       .pipe(map((data) => data.results));
   }
 
@@ -56,9 +57,11 @@ export class CharactersComponent implements OnInit {
     });
     console.log("click works");
     console.log(this.characters$);
+    this.route.navigate(["/characters"]);
   }
 
   updatePage(pageIndex: number) {
+    this.route.navigate(["/characters:pageIndex"]);
     this.characters$ = this.getCharactersObs(pageIndex);
   }
 
@@ -66,5 +69,12 @@ export class CharactersComponent implements OnInit {
 
   detailsData() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.page = this.aroute.snapshot.params["page"];
+    this.aroute.params.subscribe((params: Params) => {
+      this.page = params["page"];
+    });
+    console.log(this.page);
+    this.characters$ = this.getCharactersObs(this.page);
+  }
 }

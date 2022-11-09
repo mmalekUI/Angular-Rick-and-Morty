@@ -1,6 +1,6 @@
 <mat-paginator
   (page)="handlePageEvent($event)"
-  [length]="info.pages"
+  [length]="info?.pages"
   [pageIndex]="pageIndex"
   pageSize="1"
   aria-label="Select page"

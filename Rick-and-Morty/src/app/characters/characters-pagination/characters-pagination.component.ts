@@ -9,21 +9,14 @@ import { Router } from "@angular/router";
 })
 export class CharactersPaginationComponent implements OnInit {
   @Input() info: any;
-  @Output() pageChanger = new EventEmitter<number>();
-
-  length: any;
   pageIndex = 1;
-
   constructor(private router: Router) {}
 
   handlePageEvent(event: PageEvent) {
-    this.length = event.length;
-    this.pageIndex = event.pageIndex;
-    this.pageChanger.emit(this.pageIndex);
-    // this.router.
+    this.router.navigate(["/characters"], {
+      queryParams: { page: event.pageIndex },
+    });
   }
 
-  ngOnInit(): void {
-    length = this.info.pages;
-  }
+  ngOnInit(): void {}
 }

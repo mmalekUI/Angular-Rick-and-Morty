@@ -15,7 +15,7 @@ import { CharactersDataService } from "../charactersData.service";
 export class CharactersComponent implements OnInit {
   public characters$: Observable<any>;
   public info$: Observable<any>;
-  page!: number;
+
   constructor(
     private charactersDataService: CharactersDataService,
     private matDialog: MatDialog,
@@ -28,13 +28,13 @@ export class CharactersComponent implements OnInit {
 
   getInfoObs() {
     return this.charactersDataService
-      .getCaracters()
+      .getCharacters()
       .pipe(map((data) => data.info));
   }
 
-  getCharactersObs(page?: number) {
+  getCharactersObs(queryParams?: Params) {
     return this.charactersDataService
-      .getCaracters(page)
+      .getCharacters(queryParams)
       .pipe(map((data) => data.results));
   }
 
@@ -55,26 +55,18 @@ export class CharactersComponent implements OnInit {
     this.matDialog.open(CharacterDetailsComponent, {
       data: character,
     });
-    console.log("click works");
-    console.log(this.characters$);
     this.route.navigate(["/characters"]);
-  }
-
-  updatePage(pageIndex: number) {
-    this.route.navigate(["/characters:pageIndex"]);
-    this.characters$ = this.getCharactersObs(pageIndex);
   }
 
   //Przerobić na router, dane pobierane z url i przekazywane do geta, query paramsm, router query params w angularze (subscriber)
 
   detailsData() {}
 
+  // funkcja dodajaca query params
+
   ngOnInit(): void {
-    this.page = this.aroute.snapshot.params["page"];
-    this.aroute.params.subscribe((params: Params) => {
-      this.page = params["page"];
+    this.aroute.queryParams.subscribe((queryParams: Params) => {
+      this.characters$ = this.getCharactersObs(queryParams);
     });
-    console.log(this.page);
-    this.characters$ = this.getCharactersObs(this.page);
   }
 }

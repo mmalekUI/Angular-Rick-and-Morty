@@ -1,5 +1,5 @@
-<app-characters-start></app-characters-start>
-<p>Character list page {{ page }}</p>
+<app-characters-start></app-characters-start
+><app-characters-pagination [info]="info$ | async"></app-characters-pagination>
 <mat-grid-list cols="3" rowHeight="5:5">
   <ul *ngFor="let character of characters$ | async">
     <mat-grid-tile>
@@ -22,7 +22,3 @@
     >
   </ul>
 </mat-grid-list>
-<app-characters-pagination
-  [info]="info$ | async"
-  (pageChanger)="updatePage($event)"
-></app-characters-pagination>

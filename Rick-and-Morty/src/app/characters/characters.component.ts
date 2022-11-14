@@ -3,7 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { map, Observable } from "rxjs";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { CharacterDetailsComponent } from "./character-details/character-details.component";
-import { CharactersDataService } from "../charactersData.service";
+import { CharactersDataService } from "./services/charactersData.service";
 
 @Component({
   selector: "app-characters",
@@ -55,7 +55,6 @@ export class CharactersComponent implements OnInit {
     this.matDialog.open(CharacterDetailsComponent, {
       data: character,
     });
-    this.route.navigate(["/characters"]);
   }
 
   //Przerobić na router, dane pobierane z url i przekazywane do geta, query paramsm, router query params w angularze (subscriber)

@@ -4,6 +4,7 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatRadioModule } from "@angular/material/radio";
 
 const MaterialComponents = [
   MatCardModule,
@@ -11,6 +12,7 @@ const MaterialComponents = [
   MatButtonModule,
   MatDialogModule,
   MatPaginatorModule,
+  MatRadioModule,
 ];
 @NgModule({
   imports: [MaterialComponents],

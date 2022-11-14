@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { PageEvent } from "@angular/material/paginator";
 import { Router } from "@angular/router";
+import { merge } from "rxjs";
 
 @Component({
   selector: "app-characters-pagination",
@@ -15,6 +16,7 @@ export class CharactersPaginationComponent implements OnInit {
   handlePageEvent(event: PageEvent) {
     this.router.navigate(["/characters"], {
       queryParams: { page: event.pageIndex },
+      queryParamsHandling: "merge",
     });
   }
 

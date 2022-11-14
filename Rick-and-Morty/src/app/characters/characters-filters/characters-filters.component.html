@@ -1,1 +1,25 @@
-<p>characters-filters works!</p>
+<label id="example-radio-group-label">Choose Status</label>
+<mat-radio-group aria-label="Select status">
+  <mat-radio-button
+    [checked]="isChecked(status, 'status') | async"
+    (click)="setStatus(status)"
+    *ngFor="let status of statuses"
+    [value]="status"
+    >{{ status }}</mat-radio-button
+  >
+</mat-radio-group>
+<br />
+<mat-radio-group aria-label="Select gender">
+  <mat-radio-button
+    (click)="setGender(gender)"
+    *ngFor="let gender of genders"
+    [value]="gender"
+    >{{ gender }}</mat-radio-button
+  >
+</mat-radio-group>
+<br />
+<mat-radio-group aria-label="Select species">
+  <mat-radio-button *ngFor="let specie of species" [value]="specie">{{
+    specie
+  }}</mat-radio-button>
+</mat-radio-group>

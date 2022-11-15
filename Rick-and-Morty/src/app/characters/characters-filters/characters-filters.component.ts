@@ -46,6 +46,13 @@ export class CharactersFiltersComponent implements OnInit {
     });
   }
 
+  setSpecies(characterSpecies: string) {
+    this.router.navigate(["/characters"], {
+      queryParams: { species: characterSpecies },
+      queryParamsHandling: "merge",
+    });
+  }
+
   isChecked(value: string, paramName: string) {
     return this.aroute.queryParams.pipe(
       map((queryParams) => queryParams[paramName] === value)
@@ -55,6 +62,7 @@ export class CharactersFiltersComponent implements OnInit {
   resetFilters() {
     this.setGender("");
     this.setStatus("");
+    this.setSpecies("");
   }
 
   ngOnInit(): void {

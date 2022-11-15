@@ -11,6 +11,7 @@
 <br />
 <mat-radio-group aria-label="Select gender">
   <mat-radio-button
+    [checked]="isChecked(gender, 'gender') | async"
     (click)="setGender(gender)"
     *ngFor="let gender of genders"
     [value]="gender"
@@ -19,7 +20,11 @@
 </mat-radio-group>
 <br />
 <mat-radio-group aria-label="Select species">
-  <mat-radio-button *ngFor="let specie of species" [value]="specie">{{
-    specie
-  }}</mat-radio-button>
+  <mat-radio-button
+    *ngFor="let specie of species"
+    [checked]="isChecked(specie, 'species') | async"
+    (click)="setSpecies(specie)"
+    [value]="specie"
+    >{{ specie }}</mat-radio-button
+  >
 </mat-radio-group>

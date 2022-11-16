@@ -1,30 +1,38 @@
-<label id="example-radio-group-label">Choose Status</label>
-<mat-radio-group aria-label="Select status">
-  <mat-radio-button
-    [checked]="isChecked(status, 'status') | async"
-    (click)="setStatus(status)"
-    *ngFor="let status of statuses"
-    [value]="status"
-    >{{ status }}</mat-radio-button
-  >
-</mat-radio-group>
+<div class="filter-box">
+  <label id="example-radio-group-label">Choose Status</label>
+  <mat-radio-group aria-label="Select status">
+    <mat-radio-button
+      [checked]="isChecked(status, 'status') | async"
+      (click)="setStatus(status)"
+      *ngFor="let status of statuses"
+      [value]="status"
+      >{{ status }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>
 <br />
-<mat-radio-group aria-label="Select gender">
-  <mat-radio-button
-    [checked]="isChecked(gender, 'gender') | async"
-    (click)="setGender(gender)"
-    *ngFor="let gender of genders"
-    [value]="gender"
-    >{{ gender }}</mat-radio-button
-  >
-</mat-radio-group>
+<div class="filter-box">
+  <label id="example-radio-group-label">Choose Gender</label>
+  <mat-radio-group aria-label="Select gender">
+    <mat-radio-button
+      [checked]="isChecked(gender, 'gender') | async"
+      (click)="setGender(gender)"
+      *ngFor="let gender of genders"
+      [value]="gender"
+      >{{ gender }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>
 <br />
-<mat-radio-group aria-label="Select species">
-  <mat-radio-button
-    *ngFor="let specie of species"
-    [checked]="isChecked(specie, 'species') | async"
-    (click)="setSpecies(specie)"
-    [value]="specie"
-    >{{ specie }}</mat-radio-button
-  >
-</mat-radio-group>
+<div class="filter-box">
+  <label id="example-radio-group-label">Choose Species</label>
+  <mat-radio-group aria-label="Select species">
+    <mat-radio-button
+      *ngFor="let specie of species"
+      [checked]="isChecked(specie, 'species') | async"
+      (click)="setSpecies(specie)"
+      [value]="specie"
+      >{{ specie }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>

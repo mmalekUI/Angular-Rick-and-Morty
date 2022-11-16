@@ -1,6 +1,5 @@
 <app-characters-start></app-characters-start
 ><app-characters-filters></app-characters-filters>
-<app-characters-pagination [info]="info$ | async"></app-characters-pagination>
 <mat-grid-list cols="3" rowHeight="5:5">
   <ul *ngFor="let character of characters$ | async">
     <mat-grid-tile>
@@ -23,3 +22,4 @@
     >
   </ul>
 </mat-grid-list>
+<app-characters-pagination [info]="info$ | async"></app-characters-pagination>
